@@ -16,34 +16,42 @@ export default class Navbar extends Component<acceptedProps, {}> {
     this.state = {};
   }
 
-  //   logoutButton = () => {
-  //     return localStorage.getItem("sessionToken") === null ? (
-  //       ""
-  //     ) : (
-  //       <button onClick={this.props.logout}>Logout</button>
-  //     );
-  //   };
+  logoutButton = () => {
+    return localStorage.getItem("sessionToken") === null ? (
+      ""
+    ) : (
+      <Link to="/">
+        <button onClick={this.props.logout}>Logout</button>
+      </Link>
+    );
+  };
 
   render() {
     return (
-      <div className="bg-red-400 h-20">
-        <div>Hello!!!!!</div>
-        <nav>
-          <ul>
-            <li>
+      <div>
+        <nav className="bg-blue-200 h-20 bg-opacity-50 max-width  flex items justify-between">
+          <ul className="list-none flex items-center mr-6 space-x-3 text-white">
+            <li className="bg-blue-400 bg-opacity-50 bg-center rounded-md w-16 h-10 pt-2 shadow-lg">
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className="bg-blue-400 bg-opacity-50 bg-center rounded-md w-32 h-10 pt-2 shadow-lg">
               <Link to="/Blog">Your memories</Link>
             </li>
-            <li>
+            <li className="bg-blue-400 bg-opacity-50 bg-center rounded-md w-32 h-10 pt-2 shadow-lg">
               <Link to="/Guest">Your Guest Book</Link>
+            </li>
+          </ul>
+          <ul className="list-none flex items-center mr-6 space-x-3 text-white">
+            <li className="bg-blue-400 bg-opacity-50 bg-center rounded-md w-32 h-16 pt-2 shadow-lg ">
+              <Link to="/">
+                <button onClick={this.props.logout}>Logout</button>
+              </Link>
             </li>
           </ul>
         </nav>
         <div className="navbar-route">
           <Switch>
-            <Route exact path="/Home">
+            <Route exact path="/">
               <Home />
             </Route>
             <Route exact path="/Blog">
