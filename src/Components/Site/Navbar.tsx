@@ -42,7 +42,7 @@ export default class Navbar extends Component<acceptedProps, {}> {
             </li>
           </ul>
           <ul className="list-none flex items-center mr-6 space-x-3 text-white">
-            <li className="bg-blue-400 bg-opacity-50 bg-center rounded-md w-32 h-16 pt-2 shadow-lg ">
+            <li className="bg-blue-400 bg-opacity-50 bg-center rounded-md w-32 h-10 pt-2 shadow-lg ">
               <Link to="/">
                 <button onClick={this.props.logout}>Logout</button>
               </Link>
@@ -55,10 +55,10 @@ export default class Navbar extends Component<acceptedProps, {}> {
               <Home />
             </Route>
             <Route exact path="/Blog">
-              <Blog />
+              <Blog token={this.props.token} />
             </Route>
             <Route exact path="/Guest">
-              <Guest />
+              <Guest token={this.props.token} />
             </Route>
           </Switch>
         </div>

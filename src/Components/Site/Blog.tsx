@@ -22,6 +22,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
       description: "",
       thoughts: "",
     };
+    console.log(this.props.token);
   }
   newBlog = (e: any) => {
     e.preventDefault();
@@ -40,8 +41,13 @@ class Blog extends Component<acceptedProps, blogEntry> {
       }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
-      .then((err) => console.log(err));
+      .then(
+        (data) => {
+          console.log(this.props.token);
+          console.log(data);
+        }
+        // .then((err) => console.log(err));
+      );
   };
   render() {
     return (
@@ -93,7 +99,9 @@ class Blog extends Component<acceptedProps, blogEntry> {
                   type="text"
                   className="w-full border-2 border-transparent p-2 rounded focus:outline-none focus:border-blue-400"
                   placeholder="Description"
-                  onChange={(e) => this.setState({ activity: e.target.value })}
+                  onChange={(e) =>
+                    this.setState({ description: e.target.value })
+                  }
                   // onChange={this.handleFields}
                   defaultValue={""}
                 />
