@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 type acceptedProps = {
   token: string;
-  fetchBlogs: () => void;
+  fetchBlogs: any;
 };
 
 export interface blogEntry {
@@ -44,7 +44,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
       });
       const data = await response.json();
       console.log(data);
-      return this.props.fetchBlogs(); // calling flight library again after creating new flight
+      this.props.fetchBlogs(); // calling flight library again after creating new flight
     } catch (err) {
       console.log(err);
     }

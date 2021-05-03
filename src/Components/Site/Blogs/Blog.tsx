@@ -33,7 +33,8 @@ export class blogCard extends Component<acceptedProps, {}> {
         <div className="flex justify-center flex-wrap">
           {this.props.myBlogs.length > 0 ? (
             <>
-              {this.props.myBlogs.map((blog: any) => {
+              {this.props.myBlogs.map((blog: any, index: any) => {
+                console.log(blog);
                 return (
                   <div
                     // className="m-4 p-4 max-w-sm border rounded shadow-lg bg-gray-50"

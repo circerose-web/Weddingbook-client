@@ -4,7 +4,7 @@ import CreateBlog from "./createBlog";
 
 type acceptedProps = {
   token: any;
-  fetchBlogs: any;
+  // fetchBlogs: any;
 };
 
 interface blogEntry {
@@ -30,7 +30,8 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
         },
       });
       const data = await response.json();
-      this.setState({ myBlogs: data });
+      this.setState({ myBlogs: data.blogs });
+      console.log(data);
       console.log(this.state.myBlogs);
       return data;
     } catch (err) {
@@ -45,8 +46,8 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
   render() {
     return (
       <div>
-        <CreateBlog token={this.props.token} fetchBlogs={this.fetchBlogs} />
-        <h2 className="text-center my-2">Flights Library Lives Here:</h2>
+        {/* <CreateBlog token={this.props.token} fetchBlogs={this.fetchBlogs} /> */}
+        <h2 className="text-center my-2">Memory Library:</h2>
         <Blog
           token={this.props.token}
           myBlogs={this.state.myBlogs}

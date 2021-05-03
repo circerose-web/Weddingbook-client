@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import Auth from "./Components/Auth/Auth";
 import Navbar from "./Components/Site/Navbar";
 import Blog from "./Components/Site/Blogs/createBlog";
-import Guest from "./Components/Site/Guest";
+import Guest from "./Components/Site/Guests/Guest";
 import Home from "./Components/Site/Home";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";

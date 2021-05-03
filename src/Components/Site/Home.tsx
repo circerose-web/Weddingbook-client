@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import "../styles/Home.css";
+// import BlogLibrary from "./Blogs/blogLibrary";
 
-export default class Home extends Component {
+type acceptedProps = {
+  token: any;
+};
+export default class Home extends Component<acceptedProps, {}> {
   render() {
     return (
       <div>
@@ -18,6 +23,7 @@ export default class Home extends Component {
             Keep this as a snapshot of every little detail leading up to your
             big day
           </h4>
+          {/* <BlogLibrary token={this.props.token} /> */}
         </div>
       </div>
     );
