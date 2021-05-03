@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import Blog from "./Blog";
 import CreateBlog from "./createBlog";
-// import blogCard from "./blogCard";
 
 type acceptedProps = {
   token: any;
+  fetchBlogs: any;
 };
 
 interface blogEntry {
   myBlogs: [];
+  // myFlights: Array<number>
 }
 
 class blogLibrary extends Component<acceptedProps, blogEntry> {
@@ -20,7 +22,7 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
 
   fetchBlogs = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/blog/mine`, {
+      const response = await fetch(`http://localhost:3000/blog/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +39,6 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
   };
 
   componentDidMount() {
-    console.log(this.props.token);
     this.fetchBlogs();
   }
 
@@ -45,14 +46,12 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
     return (
       <div>
         <CreateBlog token={this.props.token} fetchBlogs={this.fetchBlogs} />
-        <h2 className="text-center my-2">
-          Let's take a look at your memories!
-        </h2>
-        {/* <blogCard
+        <h2 className="text-center my-2">Flights Library Lives Here:</h2>
+        <Blog
           token={this.props.token}
           myBlogs={this.state.myBlogs}
           fetchBlogs={this.fetchBlogs}
-        /> */}
+        />
       </div>
     );
   }

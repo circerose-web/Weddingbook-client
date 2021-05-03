@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 type acceptedProps = {
-  token: any;
+  token: string;
   fetchBlogs: () => void;
 };
 
-interface blogEntry {
+export interface blogEntry {
   title: string;
   date: number;
   activity: string;
@@ -49,31 +49,6 @@ class Blog extends Component<acceptedProps, blogEntry> {
       console.log(err);
     }
   };
-  // newBlog = (e: any) => {
-  //   e.preventDefault();
-  //   fetch("http://localhost:3000/blog/", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       title: this.state.title,
-  //       date: this.state.date,
-  //       activity: this.state.activity,
-  //       description: this.state.description,
-  //       thoughts: this.state.thoughts,
-  //     }),
-  //     headers: new Headers({
-  //       "Content-Type": "application/json",
-  //       Authorization: this.props.token,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then(
-  //       (data) => {
-  //         console.log(this.props.token);
-  //         console.log(data);
-  //       }
-  //       // .then((err) => console.log(err));
-  //     );
-  // };
   render() {
     return (
       <div>
