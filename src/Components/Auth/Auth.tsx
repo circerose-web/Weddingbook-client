@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import Login from "./Login";
 import Register from "./Register";
+import { Link } from "react-router-dom";
 
 type acceptedProps = {
-  token: any;
+  token: (token: string | null) => void;
 };
 
 type valueTypes = {
   login: boolean;
   setLogin: boolean;
-  //   firstName: string;
-  //   lastName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
 };
@@ -21,8 +22,8 @@ export default class Auth extends Component<acceptedProps, valueTypes> {
     this.state = {
       login: true,
       setLogin: false,
-      //   firstName: "",
-      //   lastName: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
     };
@@ -40,6 +41,8 @@ export default class Auth extends Component<acceptedProps, valueTypes> {
     event.preventDefault();
     this.setState({
       login: !this.state.login,
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
     });
@@ -50,7 +53,14 @@ export default class Auth extends Component<acceptedProps, valueTypes> {
       <div className="flex h-screen flex-col items-center">
         <div className="bg-gray">
           {this.authTernary()}
-          <button onClick={this.loginToggle}>Toggle</button>
+          <Link
+            to=""
+            className="no-underline hover:text-blue-400 text-blue-900"
+            onClick={this.loginToggle}
+          >
+            Create an account!
+          </Link>
+          {/* <button onClick={this.loginToggle}>Toggle</button> */}
         </div>
       </div>
     );

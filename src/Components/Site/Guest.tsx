@@ -54,7 +54,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
               <label>
                 <input
                   type="text"
-                  className="w-full border-2 border-transparent p-2 rounded focus:outline-none focus:border-blue-400"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Name"
                   onChange={(e) => this.setState({ name: e.target.value })}
                   // onChange={this.handleFields}
@@ -66,7 +66,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
               <label>
                 <input
                   type="text"
-                  className="w-full border-2 border-transparent p-2 rounded outline-none focus:border-blue-400"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Side of Family"
                   onChange={(e) => this.setState({ side: e.target.value })}
                   // onChange={this.handleFields}
@@ -78,7 +78,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
               <label>
                 <input
                   type="text"
-                  className="w-full border-2 border-transparent p-2 rounded focus:outline-none focus:border-blue-400"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Relation"
                   onChange={(e) => this.setState({ relation: e.target.value })}
                   // onChange={this.handleFields}
@@ -90,7 +90,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
               <label>
                 <input
                   type="text"
-                  className="w-full border-2 border-transparent p-2 rounded focus:outline-none focus:border-blue-400"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Spouse"
                   onChange={(e) =>
                     this.setState({ theirSpouse: e.target.value })
@@ -104,7 +104,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
               <label>
                 <input
                   type="text"
-                  className="w-full border-2  border-transparent p-2 rounded focus:outline-none focus:border-blue-400"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Kiddos"
                   onChange={(e) => this.setState({ theirKids: e.target.value })}
                   // onChange={this.handleFields}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, Switch, Route } from "react-router-dom";
-import Blog from "./Blog";
+import Blog from "./Blogs/createBlog";
 import Guest from "./Guest";
 import Home from "./Home";
 // import { render } from 'react-dom'
@@ -30,7 +30,7 @@ export default class Navbar extends Component<acceptedProps, {}> {
     return (
       <div>
         <nav className="bg-blue-200 h-20 bg-opacity-50 max-width  flex items justify-between">
-          <ul className="list-none flex items-center mr-6 space-x-3 text-white">
+          <ul className="list-none flex items-center mr-6 space-x-3 text-white pl-6">
             <li className="bg-blue-400 bg-opacity-50 bg-center rounded-md w-16 h-10 pt-2 shadow-lg">
               <Link to="/">Home</Link>
             </li>
@@ -42,7 +42,7 @@ export default class Navbar extends Component<acceptedProps, {}> {
             </li>
           </ul>
           <ul className="list-none flex items-center mr-6 space-x-3 text-white">
-            <li className="bg-blue-400 bg-opacity-50 bg-center rounded-md w-32 h-10 pt-2 shadow-lg ">
+            <li className="bg-blue-400 bg-opacity-50 bg-center rounded-md w-32 h-10 shadow-lg ">
               <Link to="/">
                 <button onClick={this.props.logout}>Logout</button>
               </Link>
