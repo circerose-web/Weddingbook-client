@@ -53,13 +53,15 @@ export default class Auth extends Component<acceptedProps, valueTypes> {
       <div className="flex h-screen flex-col items-center">
         <div className="bg-gray">
           {this.authTernary()}
-          <Link
-            to=""
-            className="no-underline hover:text-blue-400 text-blue-900"
-            onClick={this.loginToggle}
-          >
-            Create an account!
-          </Link>
+          <div className="flex justify-center my-6">
+            <Link
+              to=""
+              className="px-4 py-2  text-base rounded-full text-indigo-500 border border-indigo-500 undefined font-serif"
+              onClick={this.loginToggle}
+            >
+              Create an account!
+            </Link>
+          </div>
           {/* <button onClick={this.loginToggle}>Toggle</button> */}
         </div>
       </div>

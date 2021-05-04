@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "../../styles/Blog.css";
+import CreateBlog from "../../../Assets/create-memory.png";
 
 type acceptedProps = {
   token: string;
@@ -7,7 +9,7 @@ type acceptedProps = {
 
 export interface blogEntry {
   title: string;
-  date: number;
+  date: string;
   activity: string;
   description: string;
   thoughts: string;
@@ -18,7 +20,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
     super(props);
     this.state = {
       title: "",
-      date: 0,
+      date: "",
       activity: "",
       description: "",
       thoughts: "",
@@ -52,14 +54,20 @@ class Blog extends Component<acceptedProps, blogEntry> {
   render() {
     return (
       <div>
-        <h2 className="text-center">Creating a Memory</h2>
-        <div className="bg-white bg-opacity-50 max-w-2xl mx-auto p-5 md:p-12 my-10 rounded-lg shadow-2xl w-1/2">
+        <div className="flex justify-center">
+          <img
+            src={CreateBlog}
+            alt="create blog graphic"
+            className="h-56 w-auto my-6"
+          />
+        </div>
+        <div className="bg-indigo-200 bg-opacity-50 max-w-2xl mx-auto p-5 md:p-12 rounded-lg shadow-2xl w-1/2 my-6">
           <form className="space-y-3" onSubmit={this.newBlog}>
             <div className="flex flex-col text-center">
               <label>
                 <input
                   type="text"
-                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Title"
                   onChange={(e) => this.setState({ title: e.target.value })}
                   // onChange={this.handleFields}
@@ -71,11 +79,9 @@ class Blog extends Component<acceptedProps, blogEntry> {
               <label>
                 <input
                   type="text"
-                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Date"
-                  onChange={(e) =>
-                    this.setState({ date: parseInt(e.target.value) })
-                  }
+                  onChange={(e) => this.setState({ date: e.target.value })}
                   // onChange={this.handleFields}
                   defaultValue={""}
                 />
@@ -85,7 +91,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
               <label>
                 <input
                   type="text"
-                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Activity"
                   onChange={(e) => this.setState({ activity: e.target.value })}
                   // onChange={this.handleFields}
@@ -97,7 +103,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
               <label>
                 <input
                   type="text"
-                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Description"
                   onChange={(e) =>
                     this.setState({ description: e.target.value })
@@ -110,7 +116,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
             <div className="flex flex-col">
               <label>
                 <textarea
-                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                  className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Some thoughts"
                   onChange={(e) => this.setState({ thoughts: e.target.value })}
                   // onChange={this.handleFields}
@@ -118,12 +124,20 @@ class Blog extends Component<acceptedProps, blogEntry> {
                 />
               </label>
             </div>
-            <button
+            <div className="justify-center">
+              <button
+                type="submit"
+                className="py-2 px-4  bg-indigo-400 hover:bg-indigo-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white w-1/3 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
+              >
+                Submit
+              </button>
+            </div>
+            {/* <button
               type="submit"
               className="block mx-auto focus:outline-none focus:ring-2 focus:border-blue-200 bg-blue-700 hover:bg-blue-800 py-1 px-4 mt-4 rounded-full shadow-md text-gray-200 font-sans"
             >
               Submit
-            </button>
+            </button> */}
           </form>
         </div>
       </div>

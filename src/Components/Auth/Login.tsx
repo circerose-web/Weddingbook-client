@@ -49,10 +49,12 @@ export default class Login extends Component<acceptedProps, LoginState> {
   render() {
     return (
       <div className="login">
-        <section className="mt-10 max-w-4xl p-6 mx-auto bg-blue-300 rounded-md shadow-md dark:bg-gray-800">
+        <section className="mt-10 max-w-4xl p-6 mx-auto bg-indigo-200 bg-opacity-90 rounded-md shadow-md dark:bg-gray-800">
           <form className="space-y-5" onSubmit={this.handleSubmit}>
             <div className=" relative ">
-              <label className="text-gray-700">Email</label>
+              <label className="text-gray-700 text-xl font-semibold">
+                Email
+              </label>
               <input
                 type="text"
                 id="email"
@@ -63,8 +65,10 @@ export default class Login extends Component<acceptedProps, LoginState> {
                 onChange={this.handleChange}
               />
             </div>
-            <div className=" relative ">
-              <label className="text-gray-700">Password</label>
+            <div className=" relative">
+              <label className="text-gray-700 text-xl font-semibold">
+                Password
+              </label>
               <input
                 type="text"
                 id="password"
@@ -77,7 +81,7 @@ export default class Login extends Component<acceptedProps, LoginState> {
             </div>
             <button
               type="submit"
-              className="py-2 px-4  bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
+              className="py-2 px-4  bg-red-400 hover:bg-red-500 focus:ring-pink-500 focus:ring-offset-pink-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
             >
               Submit
             </button>

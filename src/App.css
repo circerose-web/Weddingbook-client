@@ -1,10 +1,12 @@
-body {
-  /* background-color: #f8f8ff;
-  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png"); */
+.App {
+  font-family: "Fira Sans", sans-serif;
 }
-/* .App {
-
-} */
+body {
+  /* background-color: #fafaff;
+  background-image: url("https://www.transparenttextures.com/patterns/mirrored-squares.png"); */
+  background-color: #fafaff;
+  background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
+}
 
 .App-logo {
   height: 40vmin;

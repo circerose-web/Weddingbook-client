@@ -57,64 +57,61 @@ export default class Register extends Component<acceptedProps, RegisterState> {
 
   render() {
     return (
-      <div className="register">
-        <section className="mt-10 max-w-4xl p-6 mx-auto bg-blue-300 rounded-md shadow-md dark:bg-gray-800">
-          <form className="space-y-5" onSubmit={this.handleSubmit}>
-            <h4>Register</h4>
-            <div className="relative">
-              <div>
-                <input
-                  type="text"
-                  id="name"
-                  className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  name="firstName"
-                  placeholder="First Name"
-                  // value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="mt-4">
-                <input
-                  type="text"
-                  id="password"
-                  className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  name="lastName"
-                  placeholder="Last Name"
-                  // value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="mt-4">
-                <input
-                  type="email"
-                  id="email"
-                  className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  name="email"
-                  placeholder="Email"
-                  // value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="mt-4">
-                <input
-                  type="text"
-                  id="password"
-                  className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  name="password"
-                  placeholder="Password"
-                  // value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <button
-              type="submit"
-              className="py-2 px-4  bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
-            >
-              Submit
-            </button>
-          </form>
-        </section>
+      <div className="bg-indigo-200 bg-opacity-90 p-5 md:p-12 rounded-lg shadow-2xl my-6 w-96">
+        <form className="space-y-3" onSubmit={this.handleSubmit}>
+          <div className="flex justify-center">
+            <h1 className="font-semibold text-blue-900 text-2xl">Register</h1>
+          </div>
+          <div className="flex text-center">
+            <label>
+              <input
+                type="text"
+                className="flex-1 appearance-none border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent w-72"
+                placeholder="First Name"
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="flex">
+            <label>
+              <input
+                type="text"
+                className="flex-1 appearance-none border border-gray-300 w-72 py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                placeholder="Last Name"
+                // value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="flex">
+            <label>
+              <input
+                type="email"
+                className="flex-1 appearance-none border border-gray-300 w-72 py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                placeholder="Email"
+                // value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="flex">
+            <label>
+              <input
+                type="text"
+                className="flex-1 appearance-none border border-gray-300 w-72  py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                placeholder="Password"
+                // value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <button
+            type="submit"
+            className="my-4 py-2 px-4  bg-red-400 hover:bg-red-500 focus:ring-pink-500 focus:ring-offset-pink-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
+          >
+            Submit
+          </button>
+        </form>
       </div>
     );
   }

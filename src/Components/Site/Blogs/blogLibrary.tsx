@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Blog from "./Blog";
 import CreateBlog from "./createBlog";
+import YourMemories from "../../../Assets/your-memories.png";
 
 type acceptedProps = {
   token: any;
@@ -47,7 +48,12 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
     return (
       <div>
         {/* <CreateBlog token={this.props.token} fetchBlogs={this.fetchBlogs} /> */}
-        <h2 className="text-center my-2">Memory Library:</h2>
+        {/* <h2 className="text-center my-2 text-3xl font-semibold">
+          Your Memories:
+        </h2> */}
+        <div className="flex justify-center my-4">
+          <img src={YourMemories} alt="your-memories" className="h-40 w-auto" />
+        </div>
         <Blog
           token={this.props.token}
           myBlogs={this.state.myBlogs}

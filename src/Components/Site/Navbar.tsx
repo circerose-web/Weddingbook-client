@@ -3,6 +3,7 @@ import { Link, Switch, Route } from "react-router-dom";
 import CreateBlog from "./Blogs/createBlog";
 import BlogLibrary from "./Blogs/blogLibrary";
 import Guest from "./Guests/Guest";
+import GuestList from "./Guests/GuestList";
 import Home from "./Home";
 // import { render } from 'react-dom'
 
@@ -42,7 +43,10 @@ export default class Navbar extends Component<acceptedProps, {}> {
               <Link to="/Blog">View your memories</Link>
             </li>
             <li className="px-4 py-2  text-base rounded-full text-white  bg-indigo-500 shadow-lg">
-              <Link to="/Guest">Your Guest Book</Link>
+              <Link to="/Guest">Create a Guest</Link>
+            </li>
+            <li className="px-4 py-2  text-base rounded-full text-white  bg-indigo-500 shadow-lg">
+              <Link to="/GuestList">View Your Guests</Link>
             </li>
           </ul>
           <ul className="list-none flex items-center mr-6 space-x-3 text-white">
@@ -66,6 +70,9 @@ export default class Navbar extends Component<acceptedProps, {}> {
             </Route>
             <Route exact path="/Guest">
               <Guest token={this.props.token} />
+            </Route>
+            <Route exact path="/GuestList">
+              <GuestList token={this.props.token} />
             </Route>
           </Switch>
         </div>
