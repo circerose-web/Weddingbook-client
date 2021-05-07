@@ -4,11 +4,13 @@ import Couple from "../../../Assets/couple1.png";
 
 type acceptedProps = {
   token: any;
-  myBlogs: any;
-  fetchBlogs: Function;
+  myBlogs: [];
+  fetchBlogs: any;
 };
 
 type valueTypes = {
+  myBlogs: [];
+
   title: string;
   date: string;
   activity: string;
@@ -20,6 +22,8 @@ export class Blog extends Component<acceptedProps, valueTypes> {
   constructor(props: acceptedProps) {
     super(props);
     this.state = {
+      myBlogs: [],
+
       title: "",
       date: "",
       activity: "",
@@ -28,19 +32,23 @@ export class Blog extends Component<acceptedProps, valueTypes> {
     };
   }
   componentDidMount() {
-    (id: any) => this.handleSubmit(id);
+    (id: any) => this.handleSubmit2(id);
   }
 
-  handleSubmit = (id: number) => {
-    console.log(this.props.token);
+  handleSubmit2 = (id: number) => {
     if (true) {
-      fetch(`http://localhost:3000/blog/${id}`, {
+      console.log(id);
+      fetch(`http://localhost:3000/blog/`, {
         method: "GET",
         headers: new Headers({
           "Content-Type": "application/json",
           Authorization: this.props.token,
         }),
-      });
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          this.setState({ myBlogs: data });
+        });
     }
   };
 
@@ -60,8 +68,8 @@ export class Blog extends Component<acceptedProps, valueTypes> {
       }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        this.props.handleSubmit();
+      .then((id: number) => {
+        this.handleSubmit2(id);
       });
   };
 
