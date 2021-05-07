@@ -7,9 +7,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "antd": "^4.15.4",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "reactstrap": "^8.9.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

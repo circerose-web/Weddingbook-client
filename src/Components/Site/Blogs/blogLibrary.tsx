@@ -5,12 +5,10 @@ import YourMemories from "../../../Assets/your-memories.png";
 
 type acceptedProps = {
   token: any;
-  // fetchBlogs: any;
 };
 
 interface blogEntry {
   myBlogs: [];
-  // myFlights: Array<number>
 }
 
 class blogLibrary extends Component<acceptedProps, blogEntry> {
@@ -47,10 +45,6 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
   render() {
     return (
       <div>
-        {/* <CreateBlog token={this.props.token} fetchBlogs={this.fetchBlogs} /> */}
-        {/* <h2 className="text-center my-2 text-3xl font-semibold">
-          Your Memories:
-        </h2> */}
         <div className="flex justify-center my-4">
           <img src={YourMemories} alt="your-memories" className="h-40 w-auto" />
         </div>

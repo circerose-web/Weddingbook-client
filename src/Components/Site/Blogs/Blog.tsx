@@ -8,10 +8,62 @@ type acceptedProps = {
   fetchBlogs: Function;
 };
 
-export class Blog extends Component<acceptedProps, {}> {
+type valueTypes = {
+  title: string;
+  date: string;
+  activity: string;
+  description: string;
+  thoughts: string;
+};
+
+export class Blog extends Component<acceptedProps, valueTypes> {
   constructor(props: acceptedProps) {
     super(props);
+    this.state = {
+      title: "",
+      date: "",
+      activity: "",
+      description: "",
+      thoughts: "",
+    };
   }
+  componentDidMount() {
+    (id: any) => this.handleSubmit(id);
+  }
+
+  handleSubmit = (id: number) => {
+    console.log(this.props.token);
+    if (true) {
+      fetch(`http://localhost:3000/blog/${id}`, {
+        method: "GET",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Authorization: this.props.token,
+        }),
+      });
+    }
+  };
+
+  updateBlog = (id: number) => {
+    fetch(`http://localhost:3000/blog/${id}`, {
+      method: "PUT",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: this.props.token,
+      }),
+      body: JSON.stringify({
+        title: this.state.title,
+        date: this.state.date,
+        activity: this.state.activity,
+        description: this.state.description,
+        thoughts: this.state.thoughts,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        this.props.handleSubmit();
+      });
+  };
 
   deleteBlog = async (id: number) => {
     await fetch(`http://localhost:3000/blog/${id}`, {
@@ -22,12 +74,9 @@ export class Blog extends Component<acceptedProps, {}> {
       }),
     });
     return this.props.fetchBlogs();
-    // .then(() => {this.props.fetchFlights()}) // updating flight list after one is deleted
   };
 
-  componentDidUpdate = () => {
-    // console.log(this.props.myFlights)
-  };
+  componentDidUpdate = () => {};
 
   render() {
     return (
@@ -43,21 +92,26 @@ export class Blog extends Component<acceptedProps, {}> {
                     className="mx-8 my-12 w-72 rounded-1xl bg-white border shadow-md overflow-hidden"
                     key={blog.id}
                   >
-                    <p className="mt-5 text-lg text-gray-800 text-center mb-3">
+                    <div className="mt-5 text-lg text-gray-800 text-center mb-3">
+                      <h1 className="font-semibold">Title:</h1>
+                      {blog.title}
+                    </div>
+                    <div className="mt-5 text-lg text-gray-800 text-center mb-3">
                       <h1 className="font-semibold">Date:</h1>
                       {blog.date}
-                    </p>
-                    <p className="text-md text-center mb-5">
+                    </div>
+                    <div className="text-md text-center mb-5">
                       <h1 className="font-semibold">Activity:</h1>
                       {blog.activity}
-                    </p>
-                    <p className="text-md text-center mb-5">
+                    </div>
+                    <div className="text-md text-center mb-5">
+                      <h1 className="font-semibold">Description:</h1>
                       {blog.description}
-                    </p>
-                    <p className="text-md text-center mb-5">
+                    </div>
+                    <div className="text-md text-center mb-5">
                       <h1 className="font-semibold">Thoughts:</h1>
                       {blog.thoughts}
-                    </p>
+                    </div>
                     <div className="mb-2">
                       <div className="flex flex-wrap space-x-6">
                         <button
@@ -71,6 +125,7 @@ export class Blog extends Component<acceptedProps, {}> {
                         <button
                           type="button"
                           className="py-2 px-4  bg-indigo-400 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-pink-200 text-white w-1/3 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
+                          onClick={() => this.updateBlog(blog.id)}
                         >
                           Update
                         </button>
@@ -87,13 +142,7 @@ export class Blog extends Component<acceptedProps, {}> {
               You haven't created any memories yet, let's create one!
             </h3>
           )}
-          <div>
-            {/* <img
-              src={Couple}
-              alt="couple"
-              className="w-72 mx-auto object-right-bottom"
-            /> */}
-          </div>
+          <div></div>
         </div>
         <img src={Couple} alt="couple" className="w-72 mx-auto" />
       </div>
