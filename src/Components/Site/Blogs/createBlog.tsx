@@ -46,7 +46,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
       });
       const data = await response.json();
       console.log(data);
-      this.props.fetchBlogs(); // calling flight library again after creating new flight
+      this.props.fetchBlogs();
     } catch (err) {
       console.log(err);
     }
@@ -78,7 +78,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
             <div className="flex flex-col">
               <label>
                 <input
-                  type="text"
+                  type="date"
                   className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Date"
                   onChange={(e) => this.setState({ date: e.target.value })}

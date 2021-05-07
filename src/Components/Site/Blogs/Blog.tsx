@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../styles/Blog.css";
+import moment from "moment";
 import Couple from "../../../Assets/couple1.png";
 
 type acceptedProps = {
@@ -87,6 +88,7 @@ export class Blog extends Component<acceptedProps, valueTypes> {
   componentDidUpdate = () => {};
 
   render() {
+    let dateFormat = "MM/DD/YYYY";
     return (
       <div>
         <div className="flex justify-center flex-wrap">
@@ -106,7 +108,7 @@ export class Blog extends Component<acceptedProps, valueTypes> {
                     </div>
                     <div className="mt-5 text-lg text-gray-800 text-center mb-3">
                       <h1 className="font-semibold">Date:</h1>
-                      {blog.date}
+                      {moment(blog.date).format(dateFormat)}
                     </div>
                     <div className="text-md text-center mb-5">
                       <h1 className="font-semibold">Activity:</h1>

@@ -36,23 +36,8 @@ class GuestList extends Component<acceptedProps, guestEntry> {
     }
   };
 
-  fetchGuests2 = () => {
-    fetch("http://localhost:3000/guest/", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: this.props.token,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ myGuests: data.guests });
-        console.log(this.state.myGuests);
-      });
-  };
-
   componentDidMount() {
-    this.fetchGuests2();
+    this.fetchGuests();
   }
 
   render() {
