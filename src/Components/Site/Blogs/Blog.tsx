@@ -7,11 +7,13 @@ type acceptedProps = {
   token: any;
   myBlogs: [];
   fetchBlogs: any;
+  editUpdateBlog: any;
+  updateActive: any;
+  toggle: boolean;
 };
 
 type valueTypes = {
   myBlogs: [];
-
   title: string;
   date: string;
   activity: string;
@@ -24,7 +26,6 @@ export class Blog extends Component<acceptedProps, valueTypes> {
     super(props);
     this.state = {
       myBlogs: [],
-
       title: "",
       date: "",
       activity: "",
@@ -54,7 +55,7 @@ export class Blog extends Component<acceptedProps, valueTypes> {
   };
 
   updateBlog = (id: number) => {
-    fetch(`http://localhost:3000/blog/${id}`, {
+    fetch(`http://localhost:3000/blog/${this.props}`, {
       method: "PUT",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -94,7 +95,7 @@ export class Blog extends Component<acceptedProps, valueTypes> {
         <div className="flex justify-center flex-wrap">
           {this.props.myBlogs?.length > 0 ? (
             <>
-              {this.props.myBlogs.map((blog: any, index: any) => {
+              {this.props.myBlogs?.map((blog: any, index: any) => {
                 console.log(blog);
                 return (
                   <div
@@ -135,7 +136,10 @@ export class Blog extends Component<acceptedProps, valueTypes> {
                         <button
                           type="button"
                           className="py-2 px-4  bg-indigo-400 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-pink-200 text-white w-1/3 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
-                          onClick={() => this.updateBlog(blog.id)}
+                          onClick={() => {
+                            this.props.editUpdateBlog(blog);
+                            this.props.updateActive();
+                          }}
                         >
                           Update
                         </button>

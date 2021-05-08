@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import GuestView from "./GuestView";
 import GuestListPic from "../../../Assets/guest-list.png";
+import UpdateGuestCard from "../Guests/UpdateGuestCard";
 
 type acceptedProps = {
   token: any;
+  updateGuest: [];
+  handleSubmit2: any;
   // fetchBlogs: any;
 };
 
@@ -47,6 +50,13 @@ class GuestList extends Component<acceptedProps, guestEntry> {
         <div className="flex justify-center my-4">
           <img src={GuestListPic} alt="guest-list" className="h-40 w-auto" />
         </div>
+
+        <UpdateGuestCard
+          token={this.props.token}
+          updateGuest={this.props.updateGuest}
+          handleSubmit2={this.props.handleSubmit2}
+        />
+
         <GuestView
           token={this.props.token}
           myGuests={this.state.myGuests}

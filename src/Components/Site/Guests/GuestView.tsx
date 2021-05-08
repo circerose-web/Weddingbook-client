@@ -131,6 +131,7 @@ export class GuestView extends Component<acceptedProps, valueTypes> {
                         >
                           Delete
                         </button>
+
                         {/* <button
                         className="focus:outline-none focus:ring-1 focus:ring-pink-300 bg-pink-500 hover:bg-pink-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-pink-200 font-sans"
                         onClick={() => this.deleteGuest(guest.id)}

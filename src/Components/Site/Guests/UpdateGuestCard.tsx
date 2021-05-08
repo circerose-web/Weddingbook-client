@@ -1,62 +1,42 @@
 import React, { Component } from "react";
-import CreateGuest from "../../../Assets/create-guest.png";
 
 type acceptedProps = {
   token: any;
+  updateGuest: [];
+  handleSubmit2: any;
 };
 
-interface guestEntry {
+type valueTypes = {
+  updateGuest: [];
   name: string;
   side: string;
   relation: string;
   theirSpouse: string;
   theirKids: string;
-}
+};
 
-class Guest extends Component<acceptedProps, guestEntry> {
+export default class UpdateGuestCard extends Component<
+  acceptedProps,
+  valueTypes
+> {
   constructor(props: acceptedProps) {
     super(props);
     this.state = {
+      updateGuest: [],
       name: "",
       side: "",
       relation: "",
       theirSpouse: "",
       theirKids: "",
     };
-    console.log(this.props.token);
+    console.log(this.props);
   }
-  newGuest = (e: any) => {
-    e.preventDefault();
-    fetch("http://localhost:3000/guest/", {
-      method: "POST",
-      body: JSON.stringify({
-        name: this.state.name,
-        side: this.state.side,
-        relation: this.state.relation,
-        theirSpouse: this.state.theirSpouse,
-        theirKids: this.state.theirKids,
-      }),
-      headers: new Headers({
-        "Content-Type": "application/json",
-        Authorization: this.props.token,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  };
+
   render() {
     return (
       <div>
-        <div className="flex justify-center">
-          <img
-            src={CreateGuest}
-            alt="create guest graphic"
-            className="h-60 w-auto my-6"
-          />
-        </div>
         <div className="bg-indigo-200 bg-opacity-50 max-w-2xl mx-auto p-5 md:p-12 my-4 rounded-lg shadow-2xl w-1/2">
-          <form className="space-y-3" onSubmit={this.newGuest}>
+          <form className="space-y-3" onChange={this.props.handleSubmit2}>
             <div className="flex flex-col text-center">
               <label>
                 <input
@@ -64,6 +44,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
                   className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Name"
                   onChange={(e) => this.setState({ name: e.target.value })}
+                  // onChange={this.handleFields}
                   defaultValue={""}
                 />
               </label>
@@ -75,6 +56,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
                   className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Side of Family"
                   onChange={(e) => this.setState({ side: e.target.value })}
+                  // onChange={this.handleFields}
                   defaultValue={""}
                 />
               </label>
@@ -86,6 +68,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
                   className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Relation"
                   onChange={(e) => this.setState({ relation: e.target.value })}
+                  // onChange={this.handleFields}
                   defaultValue={""}
                 />
               </label>
@@ -99,6 +82,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
                   onChange={(e) =>
                     this.setState({ theirSpouse: e.target.value })
                   }
+                  // onChange={this.handleFields}
                   defaultValue={""}
                 />
               </label>
@@ -110,6 +94,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
                   className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-500 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                   placeholder="Kiddos"
                   onChange={(e) => this.setState({ theirKids: e.target.value })}
+                  // onChange={this.handleFields}
                   defaultValue={""}
                 />
               </label>
@@ -126,5 +111,3 @@ class Guest extends Component<acceptedProps, guestEntry> {
     );
   }
 }
-
-export default Guest;

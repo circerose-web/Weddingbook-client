@@ -2,13 +2,18 @@ import React, { Component } from "react";
 import Blog from "./Blog";
 import CreateBlog from "./createBlog";
 import YourMemories from "../../../Assets/your-memories.png";
+import UpdateBlogCard from "../Blogs/UpdateBlogCard";
 
 type acceptedProps = {
   token: any;
+  handleSubmit2: [];
+  updateBlog: [];
 };
 
 interface blogEntry {
   myBlogs: [];
+  blogToUpdate: any;
+  updateActive: boolean;
 }
 
 class blogLibrary extends Component<acceptedProps, blogEntry> {
@@ -16,6 +21,8 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
     super(props);
     this.state = {
       myBlogs: [],
+      blogToUpdate: "",
+      updateActive: false,
     };
   }
 
@@ -42,17 +49,38 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
     this.fetchBlogs();
   }
 
+  editUpdateBlog = (blog: any) => {
+    this.setState({ blogToUpdate: blog });
+  };
+
   render() {
     return (
       <div>
         <div className="flex justify-center my-4">
           <img src={YourMemories} alt="your-memories" className="h-40 w-auto" />
         </div>
+        {/* <UpdateBlogCard
+          token={this.props.token}
+          updateBlog={this.props.updateBlog}
+          handleSubmit2={this.props.handleSubmit2}
+        /> */}
         <Blog
           token={this.props.token}
           myBlogs={this.state.myBlogs}
           fetchBlogs={this.fetchBlogs}
+          editUpdateBlog={this.editUpdateBlog}
+          updateActive={this.state.updateActive}
         />
+        {this.state.updateActive ? (
+          <UpdateBlogCard
+            token={this.props.token}
+            updateBlog={this.props.updateBlog}
+            handleSubmit2={this.props.handleSubmit2}
+            blogToUpdate={this.state.blogToUpdate}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     );
   }

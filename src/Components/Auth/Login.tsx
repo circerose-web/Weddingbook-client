@@ -2,14 +2,11 @@ import React, { Component } from "react";
 
 type acceptedProps = {
   token: (token: string | null) => void;
-  // user: BaseUser
 };
 
 interface LoginState {
   email: string;
   password: string;
-  // size: number
-  // minLength: number
 }
 
 export default class Login extends Component<acceptedProps, LoginState> {

@@ -15,30 +15,30 @@ export default class Home extends Component<acceptedProps, {}> {
     return (
       <div>
         <div>
-          <img src={HomePic} alt="home pic" className="w-4/5" />
+          <img src={HomePic} alt="home pic" className="w-4/5 ml-12" />
           <div className="flex items justify-center">
             <ul className="list-none flex items-center mr-6 space-x-3 justify-between">
               <div className="flex flex-col">
-                <li className="px-6 pt-4 w-48 h-16 rounded-full text-white  bg-indigo-500 shadow-lg ml-80 text-xl font-semibold">
+                <li className="px-6 pt-4 w-48 h-16 rounded-full text-white  bg-indigo-500 shadow-lg ml-52 text-xl font-semibold">
                   <Link to="/Blog">Wedding Book!</Link>
                 </li>
                 <li>
                   <img
                     src={WeddingBookPic}
                     alt="guest list"
-                    className="ml-72 w-2/5"
+                    className="ml-48 mt-4 w-2/5"
                   />
                 </li>
               </div>
               <div>
-                <li className="px-6  w-48 mt-4  h-12 rounded-full text-white  bg-indigo-500 shadow-lg ml-80 text-xl pt-2 font-semibold">
+                <li className="px-6  w-48 mt-4  h-12 rounded-full text-white  bg-indigo-500 shadow-lg ml-52 text-xl pt-2 font-semibold">
                   <Link to="/GuestList"> Your Guest List!</Link>
                 </li>
                 <li>
                   <img
                     src={GuestListPic}
                     alt="guest list"
-                    className="ml-72 w-2/5"
+                    className="ml-48 mt-4 w-2/5"
                   />
                 </li>
               </div>

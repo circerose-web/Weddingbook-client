@@ -132,12 +132,6 @@ class Blog extends Component<acceptedProps, blogEntry> {
                 Submit
               </button>
             </div>
-            {/* <button
-              type="submit"
-              className="block mx-auto focus:outline-none focus:ring-2 focus:border-blue-200 bg-blue-700 hover:bg-blue-800 py-1 px-4 mt-4 rounded-full shadow-md text-gray-200 font-sans"
-            >
-              Submit
-            </button> */}
           </form>
         </div>
       </div>
