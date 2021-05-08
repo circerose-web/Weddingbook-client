@@ -5,13 +5,14 @@ import UpdateGuestCard from "../Guests/UpdateGuestCard";
 
 type acceptedProps = {
   token: any;
-  updateGuest: [];
-  handleSubmit2: any;
-  // fetchBlogs: any;
+  updateGuest: Function;
 };
 
 interface guestEntry {
   myGuests: [];
+  guestToUpdate: any;
+  updateActive: boolean;
+  open: boolean;
 }
 
 class GuestList extends Component<acceptedProps, guestEntry> {
@@ -19,6 +20,9 @@ class GuestList extends Component<acceptedProps, guestEntry> {
     super(props);
     this.state = {
       myGuests: [],
+      guestToUpdate: "",
+      updateActive: false,
+      open: true,
     };
   }
 
@@ -33,35 +37,53 @@ class GuestList extends Component<acceptedProps, guestEntry> {
       });
       const data = await response.json();
       this.setState({ myGuests: data.guests });
-      console.log(this.state.myGuests);
+      // console.log(this.state.myGuests);
+      return data;
     } catch (err) {
-      console.log(err);
+      console.log();
     }
   };
 
   componentDidMount() {
     this.fetchGuests();
   }
+  editUpdateGuest = (guest: any) => {
+    this.setState({ guestToUpdate: guest });
+  };
+
+  updateOn = () => {
+    this.setState({ updateActive: true });
+  };
+
+  updateOff = () => {
+    this.setState({ updateActive: false });
+  };
 
   render() {
     return (
       <div>
-        {/* <CreateBlog token={this.props.token} fetchBlogs={this.fetchBlogs} /> */}
         <div className="flex justify-center my-4">
           <img src={GuestListPic} alt="guest-list" className="h-40 w-auto" />
         </div>
-
-        <UpdateGuestCard
-          token={this.props.token}
-          updateGuest={this.props.updateGuest}
-          handleSubmit2={this.props.handleSubmit2}
-        />
 
         <GuestView
           token={this.props.token}
           myGuests={this.state.myGuests}
           fetchGuests={this.fetchGuests}
+          editUpdateGuest={this.editUpdateGuest}
+          updateOn={this.updateOn}
         />
+        {this.state.updateActive ? (
+          <UpdateGuestCard
+            token={this.props.token}
+            fetchGuests={this.fetchGuests}
+            guestToUpdate={this.state.guestToUpdate}
+            updateOff={this.updateOff}
+            open={this.state.open}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     );
   }

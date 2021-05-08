@@ -23,7 +23,6 @@ class Guest extends Component<acceptedProps, guestEntry> {
       theirSpouse: "",
       theirKids: "",
     };
-    console.log(this.props.token);
   }
   newGuest = (e: any) => {
     e.preventDefault();

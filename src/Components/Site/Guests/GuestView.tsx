@@ -5,6 +5,8 @@ type acceptedProps = {
   token: any;
   myGuests: any;
   fetchGuests: any;
+  editUpdateGuest: any;
+  updateOn: any;
 };
 
 type valueTypes = {
@@ -29,25 +31,8 @@ export class GuestView extends Component<acceptedProps, valueTypes> {
     console.log(this.props);
   }
   componentDidMount() {
-    (id: any) => this.handleSubmit2(id);
+    this.props.fetchGuests();
   }
-
-  handleSubmit2 = (id: number) => {
-    if (true) {
-      console.log(id);
-      fetch(`http://localhost:3000/guest/`, {
-        method: "GET",
-        headers: new Headers({
-          "Content-Type": "application/json",
-          Authorization: this.props.token,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          this.setState({ myGuests: data });
-        });
-    }
-  };
 
   updateGuest = (id: number) => {
     fetch(`http://localhost:3000/guest/${id}`, {
@@ -65,8 +50,8 @@ export class GuestView extends Component<acceptedProps, valueTypes> {
       }),
     })
       .then((res) => res.json())
-      .then((id: number) => {
-        this.handleSubmit2(id);
+      .then(() => {
+        this.props.fetchGuests();
       });
   };
 
@@ -86,9 +71,9 @@ export class GuestView extends Component<acceptedProps, valueTypes> {
   render() {
     return (
       <div>
-        <div className="flex justify-center flex-wrap">
+        <div id="test" className="flex justify-center flex-wrap">
           {this.props.myGuests?.length > 0 ? (
-            <>
+            <form>
               {this.props.myGuests?.map((guest: any, index: any) => {
                 console.log(guest);
                 return (
@@ -120,7 +105,10 @@ export class GuestView extends Component<acceptedProps, valueTypes> {
                         <button
                           type="button"
                           className="py-2 px-4  bg-indigo-400 hover:bg-indigo-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white w-1/3 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
-                          onClick={() => this.updateGuest(guest.id)}
+                          onClick={() => {
+                            this.props.editUpdateGuest(guest);
+                            this.props.updateOn();
+                          }}
                         >
                           Update
                         </button>
@@ -131,27 +119,20 @@ export class GuestView extends Component<acceptedProps, valueTypes> {
                         >
                           Delete
                         </button>
-
-                        {/* <button
-                        className="focus:outline-none focus:ring-1 focus:ring-pink-300 bg-pink-500 hover:bg-pink-300 py-1 px-4 mx-1 mt-4 rounded-full shadow-md text-pink-200 font-sans"
-                        onClick={() => this.deleteGuest(guest.id)}
-                      >
-                        Delete
-                      </button> */}
                       </div>
                     </div>
                     <br />
                   </div>
                 );
               })}
-            </>
+            </form>
           ) : (
             <h3 className="mt-3 text-xl font-semibold text-blue-900">
               You haven't added any guests yet!
             </h3>
           )}
         </div>
-        <img src={Couple2} alt="couple" className="w-72 mx-auto" />
+        {/* <img src={Couple2} alt="couple" className="w-72 mx-auto" /> */}
       </div>
     );
   }

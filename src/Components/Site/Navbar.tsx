@@ -39,15 +39,15 @@ export default class Navbar extends Component<acceptedProps, {}> {
             <li className="px-4 py-2  text-base rounded-full text-white  bg-indigo-500 shadow-lg">
               <Link to="/createBlog">Create a memory</Link>
             </li>
-            {/* <li className="px-4 py-2  text-base rounded-full text-white  bg-indigo-500 shadow-lg">
+            <li className="px-4 py-2  text-base rounded-full text-white  bg-indigo-500 shadow-lg">
               <Link to="/Blog">View your memories</Link>
-            </li> */}
+            </li>
             <li className="px-4 py-2  text-base rounded-full text-white  bg-indigo-500 shadow-lg">
               <Link to="/Guest">Create a Guest</Link>
             </li>
-            {/* <li className="px-4 py-2  text-base rounded-full text-white  bg-indigo-500 shadow-lg">
+            <li className="px-4 py-2  text-base rounded-full text-white  bg-indigo-500 shadow-lg">
               <Link to="/GuestList">View Your Guests</Link>
-            </li> */}
+            </li>
           </ul>
           <ul className="list-none flex items-center mr-6 space-x-3 text-white">
             <li className="px-4 py-2  text-base rounded-full text-white  bg-indigo-500 shadow-lg">

@@ -8,8 +8,8 @@ type acceptedProps = {
   myBlogs: [];
   fetchBlogs: any;
   editUpdateBlog: any;
-  updateActive: any;
-  toggle: boolean;
+  // updateActive: any;
+  updateOn: any;
 };
 
 type valueTypes = {
@@ -34,25 +34,8 @@ export class Blog extends Component<acceptedProps, valueTypes> {
     };
   }
   componentDidMount() {
-    (id: any) => this.handleSubmit2(id);
+    this.props.fetchBlogs();
   }
-
-  handleSubmit2 = (id: number) => {
-    if (true) {
-      console.log(id);
-      fetch(`http://localhost:3000/blog/`, {
-        method: "GET",
-        headers: new Headers({
-          "Content-Type": "application/json",
-          Authorization: this.props.token,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          this.setState({ myBlogs: data });
-        });
-    }
-  };
 
   updateBlog = (id: number) => {
     fetch(`http://localhost:3000/blog/${this.props}`, {
@@ -70,8 +53,8 @@ export class Blog extends Component<acceptedProps, valueTypes> {
       }),
     })
       .then((res) => res.json())
-      .then((id: number) => {
-        this.handleSubmit2(id);
+      .then(() => {
+        this.props.fetchBlogs();
       });
   };
 
@@ -132,13 +115,12 @@ export class Blog extends Component<acceptedProps, valueTypes> {
                         >
                           Delete
                         </button>
-
                         <button
                           type="button"
                           className="py-2 px-4  bg-indigo-400 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-pink-200 text-white w-1/3 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
                           onClick={() => {
                             this.props.editUpdateBlog(blog);
-                            this.props.updateActive();
+                            this.props.updateOn();
                           }}
                         >
                           Update
@@ -156,7 +138,6 @@ export class Blog extends Component<acceptedProps, valueTypes> {
               You haven't created any memories yet, let's create one!
             </h3>
           )}
-          <div></div>
         </div>
         <img src={Couple} alt="couple" className="w-72 mx-auto" />
       </div>

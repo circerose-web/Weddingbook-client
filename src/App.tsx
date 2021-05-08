@@ -10,6 +10,7 @@ import "./App.css";
 
 type valueTypes = {
   token: any;
+  userRole: string | null;
 };
 
 class App extends Component<{}, valueTypes> {
@@ -17,6 +18,7 @@ class App extends Component<{}, valueTypes> {
     super(props);
     this.state = {
       token: "",
+      userRole: "",
     };
   }
 
@@ -26,7 +28,15 @@ class App extends Component<{}, valueTypes> {
         token: localStorage.getItem("sessionToken"),
       });
     }
+    if (localStorage.getItem("userRole")) {
+      this.setState({ userRole: localStorage.getItem("userRole") });
+    }
   }
+
+  updateUserRole = (newUserRole: any) => {
+    localStorage.setItem("userRole", newUserRole);
+    this.setState({ userRole: newUserRole });
+  };
 
   updateToken = (newToken: any) => {
     localStorage.setItem("sessionToken", newToken);

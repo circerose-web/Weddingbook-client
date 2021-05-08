@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../../styles/Blog.css";
 import CreateBlog from "../../../Assets/create-memory.png";
+import { Redirect } from "react-router-dom";
 
 type acceptedProps = {
   token: string;
@@ -27,7 +28,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
     };
     console.log(this.props.token);
   }
-  newBlog = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  newBlog = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await fetch(`http://localhost:3000/blog/`, {
@@ -47,6 +48,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
       const data = await response.json();
       console.log(data);
       this.props.fetchBlogs();
+      return <Redirect to="/Blog" />;
     } catch (err) {
       console.log(err);
     }
