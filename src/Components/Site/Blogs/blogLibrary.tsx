@@ -3,6 +3,7 @@ import Blog from "./Blog";
 import CreateBlog from "./createBlog";
 import YourMemories from "../../../Assets/your-memories.png";
 import UpdateBlogCard from "../Blogs/UpdateBlogCard";
+import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
   token: any;
@@ -29,7 +30,7 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
 
   fetchBlogs = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/blog/`, {
+      const response = await fetch(`${APIURL}/blog/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

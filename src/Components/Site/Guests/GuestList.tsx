@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import GuestView from "./GuestView";
 import GuestListPic from "../../../Assets/guest-list.png";
 import UpdateGuestCard from "../Guests/UpdateGuestCard";
+import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
   token: any;
@@ -28,7 +29,7 @@ class GuestList extends Component<acceptedProps, guestEntry> {
 
   fetchGuests = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/guest/`, {
+      const response = await fetch(`${APIURL}/guest/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

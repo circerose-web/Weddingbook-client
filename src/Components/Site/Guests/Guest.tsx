@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CreateGuest from "../../../Assets/create-guest.png";
+import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
   token: any;
@@ -26,7 +27,7 @@ class Guest extends Component<acceptedProps, guestEntry> {
   }
   newGuest = (e: any) => {
     e.preventDefault();
-    fetch("http://localhost:3000/guest/", {
+    fetch(`${APIURL}/guest/`, {
       method: "POST",
       body: JSON.stringify({
         name: this.state.name,

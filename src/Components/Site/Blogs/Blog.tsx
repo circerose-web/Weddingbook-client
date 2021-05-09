@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../styles/Blog.css";
 import moment from "moment";
 import Couple from "../../../Assets/couple1.png";
+import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
   token: any;
@@ -38,7 +39,7 @@ export class Blog extends Component<acceptedProps, valueTypes> {
   }
 
   updateBlog = (id: number) => {
-    fetch(`http://localhost:3000/blog/${this.props}`, {
+    fetch(`${APIURL}/blog/${this.props}`, {
       method: "PUT",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -59,7 +60,7 @@ export class Blog extends Component<acceptedProps, valueTypes> {
   };
 
   deleteBlog = async (id: number) => {
-    await fetch(`http://localhost:3000/blog/${id}`, {
+    await fetch(`${APIURL}/blog/${id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../styles/Blog.css";
 import CreateBlog from "../../../Assets/create-memory.png";
 import { Redirect } from "react-router-dom";
+import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
   token: string;
@@ -31,7 +32,7 @@ class Blog extends Component<acceptedProps, blogEntry> {
   newBlog = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3000/blog/`, {
+      const response = await fetch(`${APIURL}/blog/`, {
         method: "POST",
         body: JSON.stringify({
           title: this.state.title,

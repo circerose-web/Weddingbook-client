@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
   token: any;
@@ -36,7 +37,7 @@ export default class UpdateBlogCard extends Component<
   }
 
   updateBlog = (id: number) => {
-    fetch(`http://localhost:3000/blog/${this.props.blogToUpdate.id}`, {
+    fetch(`${APIURL}/blog/${this.props.blogToUpdate.id}`, {
       method: "PUT",
       headers: new Headers({
         "Content-Type": "application/json",

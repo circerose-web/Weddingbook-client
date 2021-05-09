@@ -5,7 +5,6 @@ import BlogLibrary from "./Blogs/blogLibrary";
 import Guest from "./Guests/Guest";
 import GuestList from "./Guests/GuestList";
 import Home from "./Home";
-// import { render } from 'react-dom'
 
 type acceptedProps = {
   token: any;

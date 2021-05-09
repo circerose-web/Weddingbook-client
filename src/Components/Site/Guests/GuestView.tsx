@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Couple2 from "../../../Assets/couple2.png";
+import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
   token: any;
@@ -35,7 +36,7 @@ export class GuestView extends Component<acceptedProps, valueTypes> {
   }
 
   updateGuest = (id: number) => {
-    fetch(`http://localhost:3000/guest/${id}`, {
+    fetch(`${APIURL}/guest/${id}`, {
       method: "PUT",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -56,7 +57,7 @@ export class GuestView extends Component<acceptedProps, valueTypes> {
   };
 
   deleteGuest = async (id: number) => {
-    await fetch(`http://localhost:3000/guest/${id}`, {
+    await fetch(`${APIURL}/guest/${id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-// import { Button, Modal } from "antd";
+import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
   token: any;
@@ -41,7 +41,7 @@ export default class UpdateBlogCard extends Component<
     console.log("please work");
     try {
       const response = await fetch(
-        `http://localhost:3000/guest/${this.props.guestToUpdate.id}`,
+        `${APIURL}/guest/${this.props.guestToUpdate.id}`,
         {
           method: "PUT",
           headers: new Headers({
