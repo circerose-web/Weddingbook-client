@@ -11,12 +11,12 @@ switch (window.location.hostname) {
   case "https://theweddingbookapp.herokuapp.com":
     APIURL = "https://crr-wedding-book.herokuapp.com";
     break;
-  //   case "https://theweddingbookapp.herokuapp.com/":
-  //     APIURL = "https://crr-wedding-book.herokuapp.com";
-  //     break;
-  //   case "https://theweddingbookapp.herokuapp.com/auth":
-  //     APIURL = "https://crr-wedding-book.herokuapp.com";
-  //     break;
+  case "https://theweddingbookapp.herokuapp.com/":
+    APIURL = "https://crr-wedding-book.herokuapp.com";
+    break;
+  case "https://theweddingbookapp.herokuapp.com/auth":
+    APIURL = "https://crr-wedding-book.herokuapp.com";
+    break;
 }
 
 export default APIURL;
