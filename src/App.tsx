@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+
 import Auth from "./Components/Auth/Auth";
 import Navbar from "./Components/Site/Navbar";
-import Blog from "./Components/Site/Blogs/createBlog";
-import Guest from "./Components/Site/Guests/Guest";
-import Home from "./Components/Site/Home";
+
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 
@@ -53,7 +51,7 @@ class App extends Component<{}, valueTypes> {
   protectedViews = () => {
     return this.state.token === localStorage.getItem("sessionToken") ? (
       <Router>
-        <Navbar logout={this.clearToken} token={this.state.token} />
+        {/* <Navbar logout={this.clearToken} token={this.state.token} /> */}
       </Router>
     ) : (
       <Auth token={this.updateToken} />

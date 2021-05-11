@@ -8,7 +8,7 @@ import WeddingBookPic from "../../Assets/weddingbook.png";
 // import BlogLibrary from "./Blogs/blogLibrary";
 
 type acceptedProps = {
-  token: any;
+  token: string;
 };
 export default class Home extends Component<acceptedProps, {}> {
   render() {

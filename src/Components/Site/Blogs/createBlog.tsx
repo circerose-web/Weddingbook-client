@@ -5,8 +5,8 @@ import { Redirect } from "react-router-dom";
 import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
-  token: string;
-  fetchBlogs: any;
+  token: any;
+  fetchBlogs: Function;
 };
 
 export interface blogEntry {

@@ -7,11 +7,14 @@ import GuestList from "./Guests/GuestList";
 import Home from "./Home";
 
 type acceptedProps = {
-  token: any;
+  token: string;
   logout: any;
+  updateBlog: any;
+  fetchBlogs: Function;
+  updateGuest: any;
 };
 
-export default class Navbar extends Component<acceptedProps, {}> {
+export class Navbar extends Component<acceptedProps, {}> {
   constructor(props: acceptedProps) {
     super(props);
     this.state = {};
@@ -59,19 +62,28 @@ export default class Navbar extends Component<acceptedProps, {}> {
         <div className="navbar-route">
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Home token={this.props.token} />
             </Route>
             <Route exact path="/createBlog">
-              <CreateBlog token={this.props.token} />
+              <CreateBlog
+                token={this.props.token}
+                fetchBlogs={this.props.fetchBlogs}
+              />
             </Route>
             <Route exact path="/Blog">
-              <BlogLibrary token={this.props.token} />
+              <BlogLibrary
+                token={this.props.token}
+                updateBlog={this.props.updateBlog}
+              />
             </Route>
             <Route exact path="/Guest">
               <Guest token={this.props.token} />
             </Route>
             <Route exact path="/GuestList">
-              <GuestList token={this.props.token} />
+              <GuestList
+                token={this.props.token}
+                updateGuest={this.props.updateGuest}
+              />
             </Route>
           </Switch>
         </div>
@@ -80,3 +92,5 @@ export default class Navbar extends Component<acceptedProps, {}> {
     );
   }
 }
+
+export default Navbar;

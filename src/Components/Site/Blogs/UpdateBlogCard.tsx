@@ -3,11 +3,11 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import APIURL from "../../../helpers/environment";
 
 type acceptedProps = {
-  token: any;
+  token: string;
   blogToUpdate: any;
   updateOff: any;
   open: boolean;
-  fetchBlogs: any;
+  fetchBlogs: Function;
 };
 
 type valueTypes = {

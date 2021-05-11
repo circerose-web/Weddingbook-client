@@ -70,6 +70,7 @@ class blogLibrary extends Component<acceptedProps, blogEntry> {
           <img src={YourMemories} alt="your-memories" className="h-40 w-auto" />
         </div>
 
+        <CreateBlog token={this.props.token} fetchBlogs={this.fetchBlogs} />
         <Blog
           token={this.props.token}
           myBlogs={this.state.myBlogs}
