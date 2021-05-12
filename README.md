@@ -1,4 +1,4 @@
-# [The WeddingBook]
+# The Wedding Book
 <br />
 
 #### Made and Styled with:
